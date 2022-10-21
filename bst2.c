@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 
+
 struct _Node{
     int value;
     struct _Node *left;
