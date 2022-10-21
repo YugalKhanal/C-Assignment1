@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <assert.h>
-// #include "bst.c"
 #include "bst.h"
 #include <stdlib.h>
 
@@ -8,9 +7,10 @@ struct _Node
 {
     // In order for the test to work, the order of left, right and value must be the same with bst.c
     // To standardize, let's all use left, right then value
+    int value;
     struct _Node *left;
     struct _Node *right;
-    int value;
+    //int value;
 };
 int main()
 {

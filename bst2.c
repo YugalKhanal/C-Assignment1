@@ -5,10 +5,10 @@
 
 
 struct _Node{
-    // int value;
+    int value;
     struct _Node *left;
     struct _Node *right;
-    int value;
+    //int value;
 };
 
 // gets a new node if the tree is empty or the root is null
@@ -20,8 +20,8 @@ Node *getNewNode(int value){
     return newNode;
 }
 
-// finds the parent node of the node to be added
-Node *findParentNode(Node *root, int value){
+// creates the parent node of the node to be added
+Node *createParentNode(Node *root, int value){
     Node *temp;
     if (value < root->value){
         temp = root->right;
@@ -33,7 +33,7 @@ Node *findParentNode(Node *root, int value){
         return root;
     }
     else{
-        return findParentNode(temp, value);
+        return createParentNode(temp, value);
     }
 }
 
@@ -53,15 +53,15 @@ bool ifNodeExists(Node *root, int value){
 
 Node *addNode(Node *root, int value){
     if (root == NULL){
-        return getNewNode(value);
+	return getNewNode(value);
     }
 
     if (ifNodeExists(root, value)){
         return NULL;
     }
 
-    Node *newNode = findParentNode(root, value);
-    Node *newNodeParent = findParentNode(root, value);
+    Node *newNode = createParentNode(root, value);
+    Node *newNodeParent = createParentNode(root, value);
 
     if (value > newNodeParent->value){
         newNode = newNodeParent->left;
