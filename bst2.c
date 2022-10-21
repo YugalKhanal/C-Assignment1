@@ -60,8 +60,8 @@ Node *addNode(Node *root, int value){
         return NULL;
     }
 
-    Node *newNode = createParentNode(root, value);
-    Node *newNodeParent = createParentNode(root, value);
+    Node *newNode = createParentNode(root, value); //new node to be added
+    Node *newNodeParent = createParentNode(root, value);//parent of the new node to be added
 
     if (value > newNodeParent->value){
         newNode = newNodeParent->left;
